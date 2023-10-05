@@ -36,6 +36,19 @@ namespace Testing.Controllers
         }
 
 
+        public IActionResult UpdateProduct(int id)
+        {
+            Product prod = repo.GetProduct(id);
+
+            if (prod == null)
+            {
+                return View("ProductNotFound");
+            }
+
+            return View(prod);
+        }
+
+
         public IActionResult InsertProduct()
         {
             var prod = repo.AssignCategory();
@@ -50,7 +63,11 @@ namespace Testing.Controllers
             return RedirectToAction("Index");
         }
 
-
+        public IActionResult DeleteProduct(Product product)
+        {
+            repo.DeleteProduct(product);
+            return RedirectToAction("Index");
+        }
 
 
     }//class

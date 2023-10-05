@@ -16,17 +16,20 @@ namespace Testing
 
         public Product GetProduct(int id);
 
-        public void UpdateProduct(Product product)
-        {
-            _conn.Execute("UPDATE products SET Name = @name, Price = @price WHERE ProductID = @id",
-             new { name = product.Name, price = product.Price, id = product.ProductID });
-        }
+        public void UpdateProduct(Product product);
+        //{
+        //    _conn.Execute("UPDATE products SET Name = @name, Price = @price WHERE ProductID = @id",
+        //     new { name = product.Name, price = product.Price, id = product.ProductID });
+        //}
 
-        public void InsertProduct(Product productToInsert);
-        public IEnumerable<Category> GetCategories();
         public Product AssignCategory();
 
+        public IEnumerable<Category> GetCategories();
 
+        public void InsertProduct(Product productToInsert);
+
+
+        public void DeleteProduct(Product product);
 
 
 
@@ -38,6 +41,10 @@ namespace Testing
         {
             throw new NotImplementedException();
         }
+
+
+
+
     }
 }//namespace
 
