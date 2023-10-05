@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Testing.Models;
 
 namespace Testing.Controllers
 {
@@ -21,13 +22,18 @@ namespace Testing.Controllers
             return View(products);
         }
 
-        //public IActionResult ViewProduct(int id)
-        //{
-        //    var product = repo.GetProduct(id);
-        //    return View(product);
-        //}
+        public IActionResult ViewProduct(int id)
+        {
+            var product = repo.GetProduct(id);
+            return View(product);
+        }
 
+        public IActionResult UpdateProductToDatabase(Product product)
+        {
+            repo.UpdateProduct(product);
 
+            return RedirectToAction("ViewProduct", new { id = product.ProductID });
+        }
 
     }//class
 }//namespace

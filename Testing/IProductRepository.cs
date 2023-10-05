@@ -14,8 +14,17 @@ namespace Testing
         public IEnumerable<Product> GetAllProducts();
 
 
-        //public Product GetProduct(int id);
-        //public void UpdateProduct(Product product);
+        public Product GetProduct(int id);
+
+        public void UpdateProduct(Product product)
+        {
+            _conn.Execute("UPDATE products SET Name = @name, Price = @price WHERE ProductID = @id",
+             new { name = product.Name, price = product.Price, id = product.ProductID });
+        }
+
+
+
+
 
         //public void InsertProduct(Product productToInsert);
 
@@ -27,5 +36,13 @@ namespace Testing
 
 
     }//Interface
+
+    internal class _conn
+    {
+        internal static void Execute(string v, object value)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }//namespace
 
