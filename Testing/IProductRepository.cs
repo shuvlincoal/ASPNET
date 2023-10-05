@@ -22,17 +22,12 @@ namespace Testing
              new { name = product.Name, price = product.Price, id = product.ProductID });
         }
 
+        public void InsertProduct(Product productToInsert);
+        public IEnumerable<Category> GetCategories();
+        public Product AssignCategory();
 
 
 
-
-        //public void InsertProduct(Product productToInsert);
-
-        //public IEnumerable<Category> GetCategories();
-
-        //public Product AssignCategory();
-
-        //public void DeleteProduct(Product product);
 
 
     }//Interface

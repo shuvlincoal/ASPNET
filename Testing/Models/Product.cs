@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Testing.Models
 {
@@ -16,7 +17,7 @@ namespace Testing.Models
         public int OnSale { get; set; }
         public int StockLevel { get; set; }
 
-
+        public IEnumerable<Category> Categories { get; set; }
 
 
 
